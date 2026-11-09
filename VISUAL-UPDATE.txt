@@ -1,0 +1,10 @@
+Grimm Prix — Painted World Edition
+
+Extract the entire ZIP, then open index.html. Keep the assets folder beside index.html.
+
+Added: 16 painted track panoramas, 24 scenery sprites, four road materials, illustrated track and cup cards, revised title screen, menus and HUD.
+Remaining: smaller specialty props and gameplay item icons still use the original graphics. Generated racers do not currently reflect garage paint colors.
+
+Artwork generated with the built-in image generation tool. Prompt direction: premium painted dark storybook racing; sixteen track-specific panoramic landscapes; isolated textured fairytale scenery; cobblestone, dirt, frost and wood road materials. Prompts are saved in ART-PROMPTS.txt.
+
+Validation: JavaScript syntax and asset coverage checked. Browser preview could not be completed: the local preview timed out, and computer access stopped because it could not verify the browser URL.

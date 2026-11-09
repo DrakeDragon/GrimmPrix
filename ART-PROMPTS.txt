@@ -1,0 +1,11 @@
+Generated with the built-in image generation tool.
+
+LANDSCAPES
+Production background atlas for a premium painted 2D fairytale racing game. Exactly 4 columns and 4 rows, sixteen equal rectangular panels with no margins no borders no text, each a wide panoramic distant landscape with horizon low at 80 percent panel height, no roads no foreground objects. Cohesive sophisticated cinematic storybook oil painting detailed atmospheric scenery, soft haze, rich textures. Row1: golden gingerbread village; moonlit enchanted forest; Wonderland garden; Cinderella palace. Row2: floating islands; bioluminescent marsh; icy glacier; thorn castle. Row3: medieval village; turquoise coast; Rapunzel tower; volcanic peaks. Row4: fairground; pirate island; Arabian palace; snowy alpine mountains.
+
+SCENERY
+Production 2D game scenery sprite atlas, premium painted dark storybook fantasy, detailed textures and sculptural lighting. Exactly 6 columns by 4 rows equal cells. Isolated complete objects: candy cane, lollipop, gingerbread cottage, gumdrops, flowering tree, pine; stump, mushroom, straw cottage, luminous mushroom, croquet hoop, card guard; teapot, flamingo, castle tower, lantern, pumpkin, clock; gravestone, ice crystals, palm, sandstone rock, circus tent, thorn bush. No labels. Transparent alpha.
+Follow-up: remove all backgrounds and grid lines to true transparent alpha; preserve all 24 objects and exact 6x4 positions, detailed painted objects, colors, sizes and lighting.
+
+ROAD MATERIALS
+Game texture atlas exactly 2 columns 2 rows equal square tiles no borders no text. Orthographic straight overhead flat diffuse material scans. Top left dark weathered grey cobblestone with moss; top right compact brown dirt and fine gravel; bottom left blue grey frosted stone fine cracks; bottom right weathered wooden boardwalk planks running vertically. Subdued contrast, tactile painted realistic materials.

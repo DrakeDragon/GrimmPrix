@@ -1267,7 +1267,7 @@ function render(){
    if(clipped)ctx.restore();
   }
  }
- drawFog(pal);
+ // Clear view: no screen-space fog over the road or scenery.
  /* player's kart */
  const pw=(CAMD/PLAYERZ)*CARW*ROAD*KX,py=HY+KY*(CAMD/PLAYERZ)*CAMH;
  drawKart(W/2,py,pw,cam,{lift:cam.airH*pw*.9,spin:cam.spin>0?cam.spinA:0,boost:cam.boost>0,tilt:cam.steerV,tag:G.state==='race'&&!cam.auto&&G.t<3});
@@ -2063,7 +2063,7 @@ drawBackground=function(T,pal){
  ctx.save();const dw=W*1.16,dh=Math.max(HY*1.14,dw*im.naturalHeight/im.naturalWidth);const shift=Math.sin(G.bgOff*.0006)*W*.06;
  ctx.drawImage(im,(W-dw)/2+shift,HY-dh,dw,dh);
  if(G.night>.05){ctx.fillStyle='rgba(13,12,45,'+(G.night*.38)+')';ctx.fillRect(0,0,W,HY);}
- const haze=ctx.createLinearGradient(0,HY*.72,0,HY);haze.addColorStop(0,'#c8c4dd00');haze.addColorStop(1,'#c8c4dd44');ctx.fillStyle=haze;ctx.fillRect(0,HY*.72,W,HY*.28);ctx.restore();
+ ctx.restore();
 };
 const sceneKeys=['cane','lolli','house','gumdrop','tree','pine','stump','mush','strawhouse','bmush','hoop','card','teapot','flamingo','tower','lamp','pumpkin','clock','tomb','iceshard','palm','cairn','tent','thornvine'];
 const sceneImages={};for(const k of sceneKeys){const im=new Image();im.src='assets/scenery/'+k+'.png';sceneImages[k]=im;}
@@ -2090,21 +2090,6 @@ checkHashImport();
 requestAnimationFrame(loop);
 window.__GP={G:G,ctl:ctl,startRace:startRace,beginRace:beginRace,act:act,update:update};
 /* Atmosphere pass: deliberately bounded drawing work for mobile devices. */
-const originalBackground=drawBackground;
-drawBackground=function(T,pal){
- originalBackground(T,pal);
- ctx.save();
- const sx=W*.72,sy=HY*.45;
- ctx.globalCompositeOperation='screen';
- let glow=ctx.createRadialGradient(sx,sy,0,sx,sy,W*.46);
- glow.addColorStop(0,'rgba(255,224,174,.22)');glow.addColorStop(.28,'rgba(211,177,255,.08)');glow.addColorStop(1,'rgba(140,170,255,0)');
- ctx.fillStyle=glow;ctx.fillRect(0,0,W,HY);
- ctx.globalCompositeOperation='source-over';
- let mist=ctx.createLinearGradient(0,HY*.65,0,HY);
- mist.addColorStop(0,'rgba(208,214,255,0)');mist.addColorStop(1,'rgba(208,214,255,.19)');
- ctx.fillStyle=mist;ctx.fillRect(0,HY*.65,W,HY*.35);
- ctx.restore();
-};
 const originalSegment=drawSegment;
 drawSegment=function(seg,pal,n){
  originalSegment(seg,pal,n);
@@ -2118,14 +2103,7 @@ drawSegment=function(seg,pal,n){
  for(const side of [-1,1])poly(a.x+side*a.w*.97,a.y+1,a.x+side*a.w*.985,a.y+1,b.x+side*b.w*.985,b.y,b.x+side*b.w*.97,b.y,'rgba(255,239,199,.48)');
  ctx.restore();
 };
-const originalRender=render;
-render=function(){
- originalRender();if(!G.track)return;
- ctx.save();
- const v=ctx.createRadialGradient(W*.5,H*.46,H*.2,W*.5,H*.46,Math.max(W,H)*.72);
- v.addColorStop(0,'rgba(8,5,23,0)');v.addColorStop(.65,'rgba(8,5,23,.04)');v.addColorStop(1,'rgba(8,5,23,.38)');
- ctx.fillStyle=v;ctx.fillRect(0,0,W,H);ctx.restore();
-};
+
 
 </script>
 </body>
